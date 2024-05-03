@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import './MyModal.css';
 
-const modalRoot = document.getElementById('modal-root') || document.createElement('div');
-
-const MyModal = ({ open, children, disableGlobalScroll, setOpen }) => { // Приймаємо setOpen як проп
+const MyModal = ({ open, children, disableGlobalScroll, setOpen }) => {
   useEffect(() => {
     if (disableGlobalScroll && open) {
       document.body.style.overflow = 'hidden';
@@ -20,10 +17,10 @@ const MyModal = ({ open, children, disableGlobalScroll, setOpen }) => { // Пр�
     <div className="modal-overlay">
       <div className="modal-content">
         {children}
-        <button className="close-button" onClick={() => setOpen(false)}>✖</button>
+        <button className="close-button" onClick={() => setOpen(false)}>Close</button>
       </div>
     </div>,
-    modalRoot
+    document.body
   );
 };
 
